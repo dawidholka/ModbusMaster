@@ -28,11 +28,15 @@ private slots:
     void disconnect_button_clicked();
     void error();
     void state_changed();
+    void send_button_clicked();
+    void update_table_data();
+    void read_reply();
 
 private:
     connectionSettings *connectionSettingsDialog;
     Ui::MainWindow *ui;
     QModbusClient *modbusClient;
+    QModbusReply *modbusReply;
 };
 
 #endif // MAINWINDOW_H
