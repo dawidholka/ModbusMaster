@@ -16,15 +16,16 @@ enum connectionType{
 };
 
 struct settings {
-    //Struct with default values
-    //int parity = QSerialPort::EvenParity;
-    //int baud = QSerialPort::Baud19200;
-    //int dataBits = QSerialPort::Data8;
-    //int stopBits = QSerialPort::OneStop;
-    int responseTime = 1000;
     QString ipAddress = QStringLiteral("127.0.0.1");
     int port = 502;
     int connectType= Tcp;
+    int parity = QSerialPort::EvenParity;
+    int baud = QSerialPort::Baud19200;
+    int dataBits = QSerialPort::Data8;
+    int stopBits = QSerialPort::OneStop;
+    int responseTime = 1000;
+    int numberOfRetries = 3;
+    QString serialPortName = QStringLiteral("COM3");
 };
 
 class connectionSettings : public QDialog
@@ -35,6 +36,7 @@ public:
     explicit connectionSettings(QWidget *parent = 0);
     ~connectionSettings();
     settings get_settings();
+    void showConnetionTypeSettings();
 
 private:
     settings connection_settings;
